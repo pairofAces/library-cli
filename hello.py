@@ -20,3 +20,5 @@ while True:
         print("Deleting book now")
     else:
         print("Thanks for using our app")
+        break
+       
