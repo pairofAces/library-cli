@@ -7,4 +7,16 @@ def print_menu():
     4. delete a book
     """)
 
-print_menu()
+while True:
+    print_menu()
+    response = int(input())
+    if response == 1:
+        print("Printing all books now")
+    elif response == 2:
+        print("Adding a book")
+    elif response == 3:
+        print("Updating book now")
+    elif response == 4:
+        print("Deleting book now")
+    else:
+        print("Thanks for using our app")
