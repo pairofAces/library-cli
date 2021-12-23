@@ -1,4 +1,7 @@
 # create the class for book
+from typing import Tuple
+
+
 class Book():
     favs = []
 
@@ -16,3 +19,10 @@ class Book():
     def __str__(self):
         return f"{self.title}, {self.pages} pages long"
     
+    def __eq__(self, other):
+        if(self.title == other.title and self.pages == other.pages):
+            return True
+    
+    # create method to allow list of items to invoke the (__str__) method
+    def __repr__(self):
+        return self.__str__()
