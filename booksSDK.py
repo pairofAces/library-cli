@@ -48,3 +48,21 @@ def get_books():
     c.connection.close()
     return books;
 
+# create a method to update a book
+def update_book(book, new_title, new_pages):
+    c = cursor()
+    with c.connection:
+        c.execute('UPDATE books SET title=?, pages=? WHERE title=? AND pages=?',
+        (new_title, new_pages, book.title, book.pages))
+    book = get_book_by_title(book.title)
+    c.connection.close()
+    return book
+
+# create method to delete a book
+def delete_book(book):
+    c = cursor()
+    with c.connection:
+        c.execute('DELETE FROM books WHERE title=? AND page=?', (book.title, book.pages))
+    rows = c.rowcount
+    c.connection.close()
+    return rows
